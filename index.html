@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mimo 3D · Diseño e impresión 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blush:#F7D3D9; --rose:#D9758D; --beige:#F5EADF; --cream:#FBF5EE; --ink:#1D1A1C;
+  --display:'Fraunces',Georgia,serif; --body:'Nunito',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.6;font-size:17px;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;font-weight:700}
+h2{font-size:clamp(28px,5vw,40px);margin-bottom:12px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-family:var(--display);font-weight:700;font-size:24px;text-decoration:none}
+.logo span{color:var(--rose)}
+.btn{display:inline-block;background:var(--ink);color:var(--cream);padding:13px 24px;border-radius:999px;
+  font-weight:700;text-decoration:none;border:0;font:inherit;font-weight:700;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--rose)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--cream)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:34px 0 70px}
+.hero p{max-width:46ch;margin:18px 0 26px;font-size:19px}
+.hero h1{font-size:clamp(38px,7vw,68px)}
+.hero h1 em{font-style:italic;font-weight:500}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.stage{background:var(--blush);border-radius:48% 52% 46% 54%/55% 45% 55% 45%;aspect-ratio:1;display:grid;place-items:center;max-width:420px;width:100%;justify-self:center}
+.vase{display:flex;flex-direction:column;align-items:center;gap:3px;animation:build 1.8s ease-out both}
+.vase i{display:block;height:11px;background:var(--ink);border-radius:6px}
+.vase i:nth-child(even){background:var(--rose)}
+@keyframes build{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+.band{background:var(--beige);padding:70px 0}
+.sec{padding:70px 0}
+.sub{max-width:52ch;margin-bottom:34px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--cream);border-radius:26px;padding:28px}
+.band .card{background:#fff8f1}
+.card:nth-child(2){background:var(--blush)}
+.card h3{font-size:24px;margin-bottom:8px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;list-style:none;padding:0}
+.steps li{border-top:3px solid var(--ink);padding-top:14px}
+.steps b{font-family:var(--display);font-size:30px;color:var(--rose)}
+.steps h3{font-size:20px;margin:4px 0 6px}
+form{background:var(--blush);border-radius:30px;padding:30px;display:grid;gap:14px;max-width:560px}
+label{font-weight:700;font-size:15px;display:grid;gap:6px}
+input,select,textarea{font:inherit;padding:12px 14px;border-radius:14px;border:2px solid transparent;background:#fff}
+input:focus,select:focus,textarea:focus{border-color:var(--ink);outline:0}
+footer{background:var(--ink);color:var(--beige);padding:34px 0;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:760px){
+  .hero,.grid,.steps{grid-template-columns:1fr}
+  .stage{max-width:300px}
+}
+@media(prefers-reduced-motion:reduce){.vase{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#">Mimo<span>3D</span></a>
+    <a class="btn ghost" href="#pedido">Pedir presupuesto</a>
+  </nav>
+  <header class="hero">
+    <div>
+      <h1>Lo que imaginas, <em>capa a capa</em></h1>
+      <p>Diseñamos e imprimimos en 3D piezas únicas: regalos personalizados, decoración y soluciones a medida. Con un toque cuqui y mucho cuidado en cada detalle.</p>
+      <div class="cta">
+        <a class="btn" href="#pedido">Cuéntanos tu idea</a>
+        <a class="btn ghost" href="#servicios">Ver qué hacemos</a>
+      </div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="vase" id="vase"></div>
+    </div>
+  </header>
+</div>
+
+<section class="band" id="servicios">
+  <div class="wrap">
+    <h2>Qué hacemos</h2>
+    <p class="sub">Desde una idea en una servilleta hasta una pieza en tus manos.</p>
+    <div class="grid">
+      <div class="card"><h3>Diseño a medida</h3><p>Creamos tu pieza desde cero: un llavero con tu nombre, un soporte, un detalle para una boda o un logotipo en relieve.</p></div>
+      <div class="card"><h3>Impresión 3D</h3><p>¿Ya tienes el modelo? Lo imprimimos en el material y color que elijas, en tonos pastel, beige, negro y más.</p></div>
+      <div class="card"><h3>Regalos personalizados</h3><p>Cumpleaños, bodas, detalles para invitados o para tu negocio. Pequeñas series o piezas únicas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2>Así de fácil</h2>
+    <p class="sub">Tú pones la idea, nosotros hacemos el resto.</p>
+    <ol class="steps">
+      <li><b>1</b><h3>Nos cuentas</h3><p>Qué quieres, para qué y para cuándo.</p></li>
+      <li><b>2</b><h3>Lo diseñamos</h3><p>Te enseñamos el modelo antes de imprimir.</p></li>
+      <li><b>3</b><h3>Lo imprimimos</h3><p>Cuidamos el acabado y el color.</p></li>
+      <li><b>4</b><h3>Lo recibes</h3><p>Recogida en tienda o envío a casa.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="pedido">
+  <div class="wrap">
+    <h2>Pide tu presupuesto</h2>
+    <p class="sub">Rellena esto y te llega por WhatsApp. Te respondemos lo antes posible.</p>
+    <form id="f">
+      <label>Tu nombre<input name="n" required autocomplete="name"></label>
+      <label>¿Qué necesitas?
+        <select name="t">
+          <option>Diseño a medida</option>
+          <option>Imprimir un modelo que ya tengo</option>
+          <option>Regalo personalizado</option>
+          <option>Otra cosa</option>
+        </select>
+      </label>
+      <label>Cuéntanos tu idea<textarea name="d" rows="4" placeholder="Tamaño, colores, para cuándo..."></textarea></label>
+      <button class="btn" type="submit">Enviar por WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Mimo3D · Diseño e impresión 3D</span>
+    <span>Pide tu presupuesto sin compromiso</span>
+  </div>
+</footer>
+
+<script>
+// Jarrón hecho de capas, como una impresión 3D
+(function(){
+  var v=document.getElementById('vase'),w=[],i;
+  for(i=0;i<22;i++){w.push(Math.round(70+46*Math.sin(i/21*Math.PI*1.15+0.3)))}
+  w.reverse();
+  w.forEach(function(x){var e=document.createElement('i');e.style.width=x+'px';v.appendChild(e)});
+})();
+// Formulario -> WhatsApp (cambia el número por el suyo, con 34 delante)
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var d=new FormData(e.target);
+  var msg='Hola, soy '+d.get('n')+'. Me interesa: '+d.get('t')+'. '+(d.get('d')||'');
+  window.open('https://wa.me/34600000000?text='+encodeURIComponent(msg),'_blank');
+});
+</script>
+</body>
+</html>
